@@ -15,3 +15,6 @@ VALUES('Goat', 'images/goat_small.jpg', 'Photo of a goat taken at Glacier Nation
 
 -- GET gallery
 SELECT * FROM "gallery";
+
+-- PUT gallery
+UPDATE "gallery" SET "likes" = "likes" + 1 WHERE "id" = 2;
