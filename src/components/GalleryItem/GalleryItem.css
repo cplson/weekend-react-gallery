@@ -1,15 +1,18 @@
-img{
+img, .img{
     width: 200px;
     height: 200px;
 }
 
+.galleryItem{
+    width: 200px;
+    height: 300px;
+    margin: 10px;
+}
 .img{
     display: inline-block;
     position: relative;
     padding: 0;
     margin: 0;
-    width: 200px;
-    height: 200px;
 }
 
 .description, .descriptionBackground{
@@ -26,4 +29,14 @@ img{
 .description{
     font-weight: bold;
     font-size: 16px;
+}
+
+.galleryItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.likeBtn{
+    width: 50px;
+    margin-top: 20px;
 }

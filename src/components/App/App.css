@@ -12,3 +12,10 @@
 .App-title {
   font-size: 1.5em;
 }
+
+.gallery{
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;  
+}

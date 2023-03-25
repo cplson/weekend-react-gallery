@@ -1,9 +1,9 @@
 import GalleryItem from "../GalleryItem/GalleryItem";
 import "./GalleryList.css";
-function GalleryList({gallery}){
+function GalleryList({gallery, getGallery}){
     
     return(       
-        gallery.map(image => <GalleryItem key={image.id} image={image}/>)
+        gallery.map(image => <GalleryItem key={image.id} image={image} getGallery={getGallery}/>)
         )
         
 }

@@ -37,8 +37,8 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
-        <div>
-          <GalleryList gallery={gallery}/>
+        <div className="gallery">
+          <GalleryList gallery={gallery} getGallery={getGallery}/>
         </div>
       </div>
     );
