@@ -7,8 +7,11 @@ CREATE TABLE "gallery"(
 "likes" INTEGER DEFAULT 0
 );
 
--- ADD MOCK DATA
+-- ADD mock data
 INSERT INTO "gallery" ("title", "path", "description")
 VALUES('Goat', 'images/goat_small.jpg', 'Photo of a goat taken at Glacier National Park that looks pretty neat.'),
 ('Bird', 'images/bird.jpeg', 'This is a picture of a bird that looks pretty neat.'),
 ('Italy', 'images/italy.jpeg', 'This is a picture taken in Italy that looks pretty neat');
+
+-- GET gallery
+SELECT * FROM "gallery";
