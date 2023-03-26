@@ -36,7 +36,19 @@ img, .img{
     flex-direction: column;
     align-items: center;
 }
+.likeBtn, .deleteBtn{   
+    margin-top: 20px;
+    margin: 20px 5px 0px;
+}
+
 .likeBtn{
     width: 50px;
-    margin-top: 20px;
+}
+
+.deleteBtn{
+    width: 70px;
+}
+
+.btnDiv{
+    display: flex;
 }

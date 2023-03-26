@@ -7,7 +7,7 @@ function GalleryItem({ image, getGallery }) {
     const [likes, setLikes] = useState(image.likes);
     // const [gallery, setGallery] = useState([]);
 
-    function addLike(){
+    function addLike() {
         axios.put(`/gallery/like/${image.id}`)
             .then(response => {
                 console.log('back from server');
@@ -17,7 +17,17 @@ function GalleryItem({ image, getGallery }) {
                 alert('there was an issue')
             })
     }
-    console.log('inside galleryItem', toggle);
+
+    function deleteItem() {
+        axios.delete(`/gallery/remove/${image.id}`)
+            .then(response => {
+                console.log('removed item from the db');
+                getGallery();
+            }).catch(err => {
+                alert('there was an issue deleting row from the db');
+                console.log(err);
+            });
+    }
     return (
         <div className="galleryItem">
             <button className='img' onClick={() => {
@@ -31,7 +41,11 @@ function GalleryItem({ image, getGallery }) {
                     </>
                 }
             </button >
-            <button className="likeBtn" onClick={addLike}>Like</button>
+            <div className="btnDiv">
+                <button className="likeBtn" onClick={addLike}>Like</button>
+                <button className='deleteBtn' onClick={deleteItem}>Remove</button>
+            </div>
+
             <p className="likes">{likes} people like this!</p>
         </div>
     )
