@@ -17,7 +17,10 @@ function GalleryItem({ image, getGallery }) {
                 alert('there was an issue')
             })
     }
-    console.log('inside galleryItem', toggle);
+    
+    function deleteItem(){
+        console.log('inside deleteItem()');
+    }
     return (
         <div className="galleryItem">
             <button className='img' onClick={() => {
@@ -31,7 +34,11 @@ function GalleryItem({ image, getGallery }) {
                     </>
                 }
             </button >
-            <button className="likeBtn" onClick={addLike}>Like</button>
+            <div className="btnDiv">
+                <button className="likeBtn" onClick={addLike}>Like</button>
+                <button className='deleteBtn' onClick={deleteItem}>Remove</button>
+            </div>
+                
             <p className="likes">{likes} people like this!</p>
         </div>
     )
