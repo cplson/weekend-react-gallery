@@ -5,7 +5,7 @@ import './GalleryItem.css';
 function GalleryItem({ image, getGallery }) {
     const [toggle, setToggle] = useState(true);
     const [likes, setLikes] = useState(image.likes);
-    const [gallery, setGallery] = useState([]);
+    // const [gallery, setGallery] = useState([]);
 
     function addLike(){
         axios.put(`/gallery/like/${image.id}`)
