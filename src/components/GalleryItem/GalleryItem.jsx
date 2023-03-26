@@ -2,6 +2,12 @@ import { useState } from 'react';
 import axios from 'axios';
 import './GalleryItem.css';
 
+// import material ui components
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup'
+import DeleteIcon from '@mui/icons-material/Delete'
+import FavoriteIcon from '@mui/icons-material/Favorite';
+
 function GalleryItem({ image, getGallery }) {
     const [toggle, setToggle] = useState(true);
     const [likes, setLikes] = useState(image.likes);
@@ -41,10 +47,10 @@ function GalleryItem({ image, getGallery }) {
                     </>
                 }
             </button >
-            <div className="btnDiv">
-                <button className="likeBtn" onClick={addLike}>Like</button>
-                <button className='deleteBtn' onClick={deleteItem}>Remove</button>
-            </div>
+            <ButtonGroup className="btnDiv">
+                <Button startIcon={<FavoriteIcon />} size='small' variant="contained" color="primary" className="likeBtn" onClick={addLike}>Like</Button>
+                <Button startIcon={<DeleteIcon />} size='small' variant ="contained" color="error" className='deleteBtn' onClick={deleteItem}>Remove</Button>
+            </ButtonGroup>
 
             <p className="likes">{likes} people like this!</p>
         </div>
