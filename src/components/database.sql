@@ -22,3 +22,7 @@ UPDATE "gallery" SET "likes" = "likes" + 1 WHERE "id" = 2;
 -- POST galleryItem
 INSERT INTO "gallery" ("title", "path", "description")
 VALUES('Goat', 'images/goat_small.jpg', 'Photo of a goat taken at Glacier National Park that looks pretty neat.')
+
+-- REMOVE gallery by id
+DELETE FROM "gallery"
+WHERE id = 11;
