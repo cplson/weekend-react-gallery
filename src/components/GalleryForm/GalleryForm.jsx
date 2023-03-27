@@ -1,7 +1,12 @@
+import './GalleryForm.css';
 import axios from 'axios';
 import { useState } from 'react';
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
+import Container from '@mui/material/Container';
+import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 
-function GalleryForm({getGallery}) {
+function GalleryForm({ getGallery }) {
     console.log('inside GalleryForm');
     const [formInput, setFormInput] =
         useState({
@@ -9,6 +14,8 @@ function GalleryForm({getGallery}) {
             path: '',
             description: ''
         })
+
+
 
     const addGalleryItem = () => {
         axios.post('/gallery', formInput).then(response => {
@@ -36,31 +43,35 @@ function GalleryForm({getGallery}) {
 
     return (
         <form action="">
-            <label htmlFor="">Title:</label>
-            <input type="text" placeholder="title" value={formInput.title}
-                onChange={event => setFormInput(
-                    {
-                        title: event.target.value,
-                        path: formInput.path,
-                        description: formInput.description
-                    })} />
-            <label htmlFor="">Gallery Item URL:</label>
-            <input type="text" placeholder="url" value={formInput.path}
-                onChange={event => setFormInput(
-                    {
-                        title: formInput.title,
-                        path: event.target.value,
-                        description: formInput.description
-                    })} />
-            <label htmlFor="">Description:</label>
-            <input type="text" placeholder="description" value={formInput.description}
-                onChange={event => setFormInput(
-                    { 
-                        title: formInput.title,
-                        path: formInput.path,
-                        description: event.target.value 
-                    })} />
-            <button type="submit" onClick={handleSubmit}>Submit</button>
+            <Container id="formContainer">
+                <TextField margin="dense" label="title" variant="outlined" type="text" value={formInput.title}
+                    required size="small"
+                    onChange={event => setFormInput(
+                        {
+                            title: event.target.value,
+                            path: formInput.path,
+                            description: formInput.description
+                        })} />
+
+                <TextField margin="dense" label="url" variant="outlined" type="text" value={formInput.path}
+                    required size="small"
+                    onChange={event => setFormInput(
+                        {
+                            title: formInput.title,
+                            path: event.target.value,
+                            description: formInput.description
+                        })} />
+
+                <TextField margin="dense" label="description" variant="outlined" type="text" value={formInput.description}
+                    required multiline size="small"
+                    onChange={event => setFormInput(
+                        {
+                            title: formInput.title,
+                            path: formInput.path,
+                            description: event.target.value
+                        })} />
+                <Button startIcon={<LibraryAddIcon />} size="small" variant="contained" type="submit" onClick={handleSubmit}>Submit</Button>
+            </Container>
         </form>
     )
 }
